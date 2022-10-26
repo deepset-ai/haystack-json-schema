@@ -1,7 +1,13 @@
 name: Generate schemas
 
 on:
-  workflow_dispatch: # Activate this workflow manually
+  # Activate this workflow manually
+  workflow_dispatch:
+
+  # Activate this workflow with an API call
+  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#repository_dispatch
+  repository_dispatch:
+    types: [generate-pipeline-schemas]
 
 jobs:
 
