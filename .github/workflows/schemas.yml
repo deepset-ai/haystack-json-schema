@@ -1,0 +1,40 @@
+name: Generate schemas
+
+on:
+  workflow_dispatch: # Activate this workflow manually
+
+jobs:
+
+  run:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: deepset-ai/haystack
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Install system dependencies
+        run: sudo apt update && sudo apt-get install libsndfile1 ffmpeg
+
+      - name: Install Haystack
+        run: |
+          pip install --upgrade pip
+          pip install -U .[all]
+
+      - name: Update schema
+        run: python .github/utils/generate_json_schema.py
+
+      - name: Commit files
+        run: |
+          git status
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Update Schema" -a || echo "No changes to commit"
+          git push
