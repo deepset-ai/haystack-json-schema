@@ -9,11 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          repository: deepset-ai/haystack
-
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
@@ -25,7 +20,7 @@ jobs:
       - name: Install Haystack
         run: |
           pip install --upgrade pip
-          pip install -U .[all]
+          pip install git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[all]
 
       - name: Update schema
         run: python .github/utils/generate_json_schema.py
