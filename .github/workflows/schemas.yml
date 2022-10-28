@@ -1,4 +1,4 @@
-name: Generate schemas
+name: Schemas
 
 on:
   # Activate this workflow manually
