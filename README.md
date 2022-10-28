@@ -8,7 +8,7 @@
 
 JSON Schema for validating [Haystack](https://haystack.deepset.ai/) [Pipeline YAML files](https://docs.haystack.deepset.ai/docs/pipelines#yaml-file-definitions). These schemas are [referenced in SchemaStore](https://www.schemastore.org/json/) and allow IDEs to validate your Haystack Pipeline YAML files.
 
-These schemas are all generated. Issues, PRs and Discussions on this repo are not monitored. Please open these on the [main Haystack repository](https://github.com/deepset-ai/haystack).
+These schemas are all generated. PRs on this repo are not monitored and will be ignored. In case of problems, open an issue or discussion on the [main Haystack repository](https://github.com/deepset-ai/haystack).
 
 <a href="https://github.com/deepset-ai/haystack-json-schema/actions/workflows/schemas.yml">
     <img alt="Schemas" src="https://github.com/deepset-ai/haystack-json-schema/actions/workflows/schemas.yml/badge.svg">
