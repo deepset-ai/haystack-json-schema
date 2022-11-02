@@ -21,7 +21,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.x   # The latest Python 3 available
+          python-version: 3.7
 
       - name: Install system dependencies
         run: sudo apt update && sudo apt-get install libsndfile1 ffmpeg
