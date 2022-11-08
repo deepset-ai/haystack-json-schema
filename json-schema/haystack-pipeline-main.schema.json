@@ -363,7 +363,14 @@
           "properties": {
             "api_key": {
               "title": "Api Key",
-              "type": "string"
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "workspace": {
               "title": "Workspace",
@@ -711,7 +718,14 @@
             },
             "vector_dim": {
               "title": "Vector Dim",
-              "type": "integer"
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "embedding_dim": {
               "title": "Embedding Dim",
@@ -774,6 +788,9 @@
                 {
                   "type": "string",
                   "format": "path"
+                },
+                {
+                  "type": "null"
                 }
               ]
             },
@@ -786,12 +803,22 @@
                 {
                   "type": "string",
                   "format": "path"
+                },
+                {
+                  "type": "null"
                 }
               ]
             },
             "isolation_level": {
               "title": "Isolation Level",
-              "type": "string"
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "n_links": {
               "title": "N Links",
@@ -1075,7 +1102,14 @@
             },
             "vector_dim": {
               "title": "Vector Dim",
-              "type": "integer"
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "embedding_dim": {
               "title": "Embedding Dim",
@@ -1158,7 +1192,14 @@
             },
             "isolation_level": {
               "title": "Isolation Level",
-              "type": "string"
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "consistency_level": {
               "title": "Consistency Level",
@@ -1862,7 +1903,14 @@
             },
             "isolation_level": {
               "title": "Isolation Level",
-              "type": "string"
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "additionalProperties": false,
@@ -1934,11 +1982,25 @@
             },
             "username": {
               "title": "Username",
-              "type": "string"
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "password": {
               "title": "Password",
-              "type": "string"
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "index": {
               "title": "Index",
@@ -3150,7 +3212,14 @@
             },
             "max_seq_len": {
               "title": "Max Seq Len",
-              "type": "integer"
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "pre_split_text": {
               "title": "Pre Split Text",
@@ -3212,7 +3281,14 @@
             },
             "sas_model": {
               "title": "Sas Model",
-              "type": "string"
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "debug": {
               "title": "Debug",
@@ -5840,7 +5916,14 @@
             },
             "model_name_or_path": {
               "title": "Model Name Or Path",
-              "type": "string"
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "model_version": {
               "title": "Model Version",
@@ -6158,7 +6241,14 @@
             },
             "classification_field": {
               "title": "Classification Field",
-              "type": "string"
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "progress_bar": {
               "title": "Progress Bar",
