@@ -44,7 +44,7 @@
             "$ref": "#/definitions/InMemoryKnowledgeGraphComponent"
           },
           {
-            "$ref": "#/definitions/Milvus2DocumentStoreComponent"
+            "$ref": "#/definitions/MilvusDocumentStoreComponent"
           },
           {
             "$ref": "#/definitions/OpenDistroElasticsearchDocumentStoreComponent"
@@ -1057,7 +1057,7 @@
       ],
       "additionalProperties": false
     },
-    "Milvus2DocumentStoreComponent": {
+    "MilvusDocumentStoreComponent": {
       "type": "object",
       "properties": {
         "name": {
@@ -1069,7 +1069,7 @@
           "title": "Type",
           "description": "Haystack Class name for the component.",
           "type": "string",
-          "const": "Milvus2DocumentStore"
+          "const": "MilvusDocumentStore"
         },
         "params": {
           "title": "Parameters",
