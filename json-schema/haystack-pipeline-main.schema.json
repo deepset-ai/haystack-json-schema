@@ -80,6 +80,9 @@
             "$ref": "#/definitions/Docs2AnswersComponent"
           },
           {
+            "$ref": "#/definitions/DocumentMergerComponent"
+          },
+          {
             "$ref": "#/definitions/DocumentToSpeechComponent"
           },
           {
@@ -2657,6 +2660,40 @@
               "title": "Progress Bar",
               "default": true,
               "type": "boolean"
+            }
+          },
+          "additionalProperties": false,
+          "description": "Each parameter can reference other components defined in the same YAML file."
+        }
+      },
+      "required": [
+        "type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "DocumentMergerComponent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "description": "Custom name for the component. Helpful for visualization and debugging.",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "description": "Haystack Class name for the component.",
+          "type": "string",
+          "const": "DocumentMerger"
+        },
+        "params": {
+          "title": "Parameters",
+          "type": "object",
+          "properties": {
+            "separator": {
+              "title": "Separator",
+              "default": " ",
+              "type": "string"
             }
           },
           "additionalProperties": false,
