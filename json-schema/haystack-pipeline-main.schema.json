@@ -1014,6 +1014,31 @@
                   "type": "null"
                 }
               ]
+            },
+            "use_bm25": {
+              "title": "Use Bm25",
+              "default": false,
+              "type": "boolean"
+            },
+            "bm25_tokenization_regex": {
+              "title": "Bm25 Tokenization Regex",
+              "default": "(?u)\\b\\w\\w+\\b",
+              "type": "string"
+            },
+            "bm25_algorithm": {
+              "title": "Bm25 Algorithm",
+              "default": "BM25Okapi",
+              "enum": [
+                "BM25Okapi",
+                "BM25L",
+                "BM25Plus"
+              ],
+              "type": "string"
+            },
+            "bm25_parameters": {
+              "title": "Bm25 Parameters",
+              "default": {},
+              "type": "object"
             }
           },
           "additionalProperties": false,
