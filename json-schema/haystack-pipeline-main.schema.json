@@ -4708,7 +4708,14 @@
                 "sentence",
                 "passage"
               ],
-              "type": "string"
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "split_length": {
               "title": "Split Length",
