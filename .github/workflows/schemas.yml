@@ -26,14 +26,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Checkout
+      - name: Validate release
+        id: validate
+        continue-on-error: true
+        run: |
+          echo "${HAYSTACK_REF}" | egrep '^main|v[0-9]+\.[0-9]+\.[0-9]+$'
+
+      - if: steps.validate.outcome == 'success'
+        name: Checkout
         uses: actions/checkout@v3
 
-      - name: Update schema
+      - if: steps.validate.outcome == 'success'
+        name: Update schema
         run: |
           docker run -t -v "${PWD}:/haystack-json-schema" "docker.io/deepset/haystack:base-cpu-${HAYSTACK_REF}" python /haystack-json-schema/.github/utils/generate_json_schema.py
 
-      - name: Commit files
+      - if: steps.validate.outcome == 'success'
+        name: Commit files
         run: |
           git status
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -49,4 +58,4 @@ jobs:
         with:
          status: ${{ job.status }}
          channel: '#haystack'
-        if: failure() && github.repository_owner == 'deepset-ai' && github.ref == 'refs/heads/main'
+        if: steps.validate.outcome == 'success' && failure() && github.repository_owner == 'deepset-ai' && github.ref == 'refs/heads/main'
