@@ -1,40 +1,37 @@
 name: Schemas
+run-name: Update schema for ref ${{ github.event.client_payload.ref || inputs.ref || 'main' }}
 
 on:
-  # Activate this workflow manually
-  workflow_dispatch:
+  workflow_dispatch: # Activate this workflow manually
+    inputs:
+      ref:
+        description: Tag or branch name of Haystack version
+        required: true
+        type: string
+        default: main
 
   # Activate this workflow with an API call
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#repository_dispatch
   repository_dispatch:
     types: [generate-pipeline-schemas]
 
+env:
+  HAYSTACK_REF: ${{ github.event.client_payload.ref || inputs.ref || 'main' }}
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
 jobs:
 
   run:
+    name: Update schema for ref ${{ github.event.client_payload.ref || inputs.ref || 'main' }}
     runs-on: ubuntu-latest
     steps:
 
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.7
-
-      - name: Install system dependencies
-        run: sudo apt update && sudo apt-get install libsndfile1 ffmpeg
-
-      - name: Install Haystack
-        # FIXME: seems like a one-pass install of `[all]` does not work. Thanks `pyworld` :(
-        run: |
-          pip install --upgrade pip
-          pip install git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack
-          pip install git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[all]
-
       - name: Update schema
-        run: python .github/utils/generate_json_schema.py
+        run: |
+          docker run -t -v "${PWD}:/haystack-json-schema" "docker.io/deepset/haystack:base-cpu-${HAYSTACK_REF}" python /haystack-json-schema/.github/utils/generate_json_schema.py
 
       - name: Commit files
         run: |
@@ -42,9 +39,9 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add .
-          git commit -m "Update Schema" -a || echo "No changes to commit"
+          git commit -m "Update Schema for ${HAYSTACK_REF}" -a || echo "No changes to commit"
           git push
-          
+
       - uses: act10ns/slack@v1
         with:
          status: ${{ job.status }}
