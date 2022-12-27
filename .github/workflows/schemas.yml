@@ -28,6 +28,7 @@ jobs:
 
       - name: Validate release
         id: validate
+        # Silently discard docker releases for test purposes to not publish schema files for them, while avoiding a red CI.
         continue-on-error: true
         run: |
           echo "${HAYSTACK_REF}" | egrep '^main|v[0-9]+\.[0-9]+\.[0-9]+$'
