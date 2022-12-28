@@ -5743,7 +5743,7 @@
           "properties": {
             "model_name_or_path": {
               "title": "Model Name Or Path",
-              "default": "https://ext-models-haystack.s3.eu-central-1.amazonaws.com/gradboost_query_classifier/model.pickle",
+              "default": "https://ext-models-haystack.s3.eu-central-1.amazonaws.com/gradboost_query_classifier_2022/model.pickle",
               "anyOf": [
                 {
                   "type": "string"
@@ -5753,7 +5753,7 @@
             },
             "vectorizer_name_or_path": {
               "title": "Vectorizer Name Or Path",
-              "default": "https://ext-models-haystack.s3.eu-central-1.amazonaws.com/gradboost_query_classifier/vectorizer.pickle",
+              "default": "https://ext-models-haystack.s3.eu-central-1.amazonaws.com/gradboost_query_classifier_2022/vectorizer.pickle",
               "anyOf": [
                 {
                   "type": "string"
