@@ -6837,16 +6837,6 @@
               "default": true,
               "type": "boolean"
             },
-            "separator_for_single_summary": {
-              "title": "Separator For Single Summary",
-              "default": " ",
-              "type": "string"
-            },
-            "generate_single_summary": {
-              "title": "Generate Single Summary",
-              "default": false,
-              "type": "boolean"
-            },
             "batch_size": {
               "title": "Batch Size",
               "default": 16,
