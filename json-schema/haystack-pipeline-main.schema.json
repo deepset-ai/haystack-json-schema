@@ -3425,6 +3425,11 @@
                   "type": "null"
                 }
               ]
+            },
+            "max_query_length": {
+              "title": "Max Query Length",
+              "default": 64,
+              "type": "integer"
             }
           },
           "required": [
