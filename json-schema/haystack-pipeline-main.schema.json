@@ -2098,6 +2098,11 @@
               "title": "Recreate Index",
               "default": false,
               "type": "boolean"
+            },
+            "replication_factor": {
+              "title": "Replication Factor",
+              "default": 1,
+              "type": "integer"
             }
           },
           "additionalProperties": false,
