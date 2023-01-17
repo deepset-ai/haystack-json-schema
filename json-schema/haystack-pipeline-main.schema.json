@@ -4622,6 +4622,11 @@
               "title": "Add Page Number",
               "default": false,
               "type": "boolean"
+            },
+            "max_chars_check": {
+              "title": "Max Chars Check",
+              "default": 10000,
+              "type": "integer"
             }
           },
           "additionalProperties": false,
