@@ -4876,6 +4876,20 @@
                   "type": "null"
                 }
               ]
+            },
+            "stop_words": {
+              "title": "Stop Words",
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "additionalProperties": false,
