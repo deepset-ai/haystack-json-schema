@@ -4494,6 +4494,28 @@
               "title": "Extract Headlines",
               "default": true,
               "type": "boolean"
+            },
+            "timeout": {
+              "title": "Timeout",
+              "default": 10.0,
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                }
+              ]
             }
           },
           "additionalProperties": false,
@@ -6378,6 +6400,28 @@
                 },
                 {
                   "type": "null"
+                }
+              ]
+            },
+            "timeout": {
+              "title": "Timeout",
+              "default": 10.0,
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
                 }
               ]
             }
