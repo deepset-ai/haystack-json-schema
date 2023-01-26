@@ -3888,6 +3888,11 @@
               "title": "Extract Headlines",
               "default": false,
               "type": "boolean"
+            },
+            "add_frontmatter_to_meta": {
+              "title": "Add Frontmatter To Meta",
+              "default": false,
+              "type": "boolean"
             }
           },
           "additionalProperties": false,
