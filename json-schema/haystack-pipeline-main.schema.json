@@ -200,6 +200,9 @@
             "$ref": "#/definitions/TransformersDocumentClassifierComponent"
           },
           {
+            "$ref": "#/definitions/TransformersImageToTextComponent"
+          },
+          {
             "$ref": "#/definitions/TransformersQueryClassifierComponent"
           },
           {
@@ -432,6 +435,11 @@
               "title": "Embedding Dim",
               "default": 768,
               "type": "integer"
+            },
+            "use_prefiltering": {
+              "title": "Use Prefiltering",
+              "default": false,
+              "type": "boolean"
             }
           },
           "additionalProperties": false,
@@ -6607,6 +6615,112 @@
                   "type": "null"
                 }
               ]
+            },
+            "progress_bar": {
+              "title": "Progress Bar",
+              "default": true,
+              "type": "boolean"
+            },
+            "use_auth_token": {
+              "title": "Use Auth Token",
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "devices": {
+              "title": "Devices",
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "description": "Each parameter can reference other components defined in the same YAML file."
+        }
+      },
+      "required": [
+        "type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "TransformersImageToTextComponent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "description": "Custom name for the component. Helpful for visualization and debugging.",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "description": "Haystack Class name for the component.",
+          "type": "string",
+          "const": "TransformersImageToText"
+        },
+        "params": {
+          "title": "Parameters",
+          "type": "object",
+          "properties": {
+            "model_name_or_path": {
+              "title": "Model Name Or Path",
+              "default": "nlpconnect/vit-gpt2-image-captioning",
+              "type": "string"
+            },
+            "model_version": {
+              "title": "Model Version",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "generation_kwargs": {
+              "title": "Generation Kwargs",
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "use_gpu": {
+              "title": "Use Gpu",
+              "default": true,
+              "type": "boolean"
+            },
+            "batch_size": {
+              "title": "Batch Size",
+              "default": 16,
+              "type": "integer"
             },
             "progress_bar": {
               "title": "Progress Bar",
