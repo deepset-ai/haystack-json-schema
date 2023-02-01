@@ -176,6 +176,9 @@
             "$ref": "#/definitions/Seq2SeqGeneratorComponent"
           },
           {
+            "$ref": "#/definitions/ShaperComponent"
+          },
+          {
             "$ref": "#/definitions/SklearnQueryClassifierComponent"
           },
           {
@@ -5846,6 +5849,85 @@
           },
           "required": [
             "model_name_or_path"
+          ],
+          "additionalProperties": false,
+          "description": "Each parameter can reference other components defined in the same YAML file."
+        }
+      },
+      "required": [
+        "type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ShaperComponent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "description": "Custom name for the component. Helpful for visualization and debugging.",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "description": "Haystack Class name for the component.",
+          "type": "string",
+          "const": "Shaper"
+        },
+        "params": {
+          "title": "Parameters",
+          "type": "object",
+          "properties": {
+            "func": {
+              "title": "Func",
+              "type": "string"
+            },
+            "outputs": {
+              "title": "Outputs",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "inputs": {
+              "title": "Inputs",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "params": {
+              "title": "Params",
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "func",
+            "outputs"
           ],
           "additionalProperties": false,
           "description": "Each parameter can reference other components defined in the same YAML file."
