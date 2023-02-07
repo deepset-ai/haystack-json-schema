@@ -1054,8 +1054,14 @@
             },
             "bm25_parameters": {
               "title": "Bm25 Parameters",
-              "default": {},
-              "type": "object"
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "additionalProperties": false,
@@ -1879,10 +1885,14 @@
             },
             "metadata_config": {
               "title": "Metadata Config",
-              "default": {
-                "indexed": []
-              },
-              "type": "object"
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "validate_index_sync": {
               "title": "Validate Index Sync",
@@ -3048,11 +3058,17 @@
             },
             "embed_meta_fields": {
               "title": "Embed Meta Fields",
-              "default": [],
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "api_key": {
               "title": "Api Key",
@@ -3551,17 +3567,17 @@
           "properties": {
             "supported_types": {
               "title": "Supported Types",
-              "default": [
-                "txt",
-                "pdf",
-                "md",
-                "docx",
-                "html"
-              ],
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "additionalProperties": false,
@@ -3666,9 +3682,6 @@
             },
             "valid_languages": {
               "title": "Valid Languages",
-              "default": [
-                "eng"
-              ],
               "anyOf": [
                 {
                   "type": "array",
@@ -3972,22 +3985,28 @@
             },
             "query_feature_extractor_params": {
               "title": "Query Feature Extractor Params",
-              "default": {
-                "max_length": 64
-              },
-              "type": "object"
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "document_feature_extractors_params": {
               "title": "Document Feature Extractors Params",
-              "default": {
-                "text": {
-                  "max_length": 256
-                }
-              },
-              "type": "object",
               "additionalProperties": {
                 "type": "object"
-              }
+              },
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "top_k": {
               "title": "Top K",
@@ -4001,13 +4020,17 @@
             },
             "embed_meta_fields": {
               "title": "Embed Meta Fields",
-              "default": [
-                "name"
-              ],
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "similarity_function": {
               "title": "Similarity Function",
@@ -4207,11 +4230,17 @@
             },
             "embed_meta_fields": {
               "title": "Embed Meta Fields",
-              "default": [],
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -4437,9 +4466,6 @@
             },
             "valid_languages": {
               "title": "Valid Languages",
-              "default": [
-                "eng"
-              ],
               "anyOf": [
                 {
                   "type": "array",
@@ -4649,11 +4675,17 @@
             },
             "remove_substrings": {
               "title": "Remove Substrings",
-              "default": [],
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "split_by": {
               "title": "Split By",
@@ -6232,15 +6264,17 @@
             },
             "embed_meta_fields": {
               "title": "Embed Meta Fields",
-              "default": [
-                "name",
-                "section_title",
-                "caption"
-              ],
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "use_fast_tokenizers": {
               "title": "Use Fast Tokenizers",
@@ -6920,14 +6954,17 @@
             },
             "labels": {
               "title": "Labels",
-              "default": [
-                "LABEL_1",
-                "LABEL_0"
-              ],
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "batch_size": {
               "title": "Batch Size",
