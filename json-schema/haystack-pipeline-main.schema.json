@@ -2057,6 +2057,17 @@
                 }
               ]
             },
+            "additional_headers": {
+              "title": "Additional Headers",
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
             "index": {
               "title": "Index",
               "default": "Document",
