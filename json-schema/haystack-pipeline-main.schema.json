@@ -4291,12 +4291,12 @@
             },
             "model": {
               "title": "Model",
-              "default": "text-curie-001",
+              "default": "text-davinci-003",
               "type": "string"
             },
             "max_tokens": {
               "title": "Max Tokens",
-              "default": 13,
+              "default": 50,
               "type": "integer"
             },
             "top_k": {
@@ -4311,12 +4311,12 @@
             },
             "presence_penalty": {
               "title": "Presence Penalty",
-              "default": -2.0,
+              "default": 0.1,
               "type": "number"
             },
             "frequency_penalty": {
               "title": "Frequency Penalty",
-              "default": -2.0,
+              "default": 0.1,
               "type": "number"
             },
             "examples_context": {
@@ -4335,7 +4335,12 @@
               "anyOf": [
                 {
                   "type": "array",
-                  "items": {}
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
                 },
                 {
                   "type": "null"
@@ -4347,7 +4352,9 @@
               "anyOf": [
                 {
                   "type": "array",
-                  "items": {}
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 {
                   "type": "null"
@@ -4358,6 +4365,23 @@
               "title": "Progress Bar",
               "default": true,
               "type": "boolean"
+            },
+            "prompt_template": {
+              "title": "Prompt Template",
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "context_join_str": {
+              "title": "Context Join Str",
+              "default": " ",
+              "type": "string"
             }
           },
           "required": [
