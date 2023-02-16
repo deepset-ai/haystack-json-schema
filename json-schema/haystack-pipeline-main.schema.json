@@ -5065,6 +5065,17 @@
                   "type": "null"
                 }
               ]
+            },
+            "model_kwargs": {
+              "title": "Model Kwargs",
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "additionalProperties": false,
