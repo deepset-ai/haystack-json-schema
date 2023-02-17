@@ -665,11 +665,6 @@
               "default": "overwrite",
               "type": "string"
             },
-            "index_type": {
-              "title": "Index Type",
-              "default": "flat",
-              "type": "string"
-            },
             "scroll": {
               "title": "Scroll",
               "default": "1d",
@@ -1782,6 +1777,28 @@
               "title": "Knn Engine",
               "default": "nmslib",
               "type": "string"
+            },
+            "knn_parameters": {
+              "title": "Knn Parameters",
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "ivf_train_size": {
+              "title": "Ivf Train Size",
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "additionalProperties": false,
