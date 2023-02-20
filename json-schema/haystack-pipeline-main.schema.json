@@ -5083,6 +5083,11 @@
                 }
               ]
             },
+            "top_k": {
+              "title": "Top K",
+              "default": 1,
+              "type": "integer"
+            },
             "model_kwargs": {
               "title": "Model Kwargs",
               "anyOf": [
