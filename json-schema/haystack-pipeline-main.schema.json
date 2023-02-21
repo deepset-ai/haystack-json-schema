@@ -122,6 +122,9 @@
             "$ref": "#/definitions/JoinDocumentsComponent"
           },
           {
+            "$ref": "#/definitions/JsonConverterComponent"
+          },
+          {
             "$ref": "#/definitions/MarkdownConverterComponent"
           },
           {
@@ -3861,6 +3864,73 @@
             },
             "sort_by_score": {
               "title": "Sort By Score",
+              "default": true,
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false,
+          "description": "Each parameter can reference other components defined in the same YAML file."
+        }
+      },
+      "required": [
+        "type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "JsonConverterComponent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "description": "Custom name for the component. Helpful for visualization and debugging.",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "description": "Haystack Class name for the component.",
+          "type": "string",
+          "const": "JsonConverter"
+        },
+        "params": {
+          "title": "Parameters",
+          "type": "object",
+          "properties": {
+            "remove_numeric_tables": {
+              "title": "Remove Numeric Tables",
+              "default": false,
+              "type": "boolean"
+            },
+            "valid_languages": {
+              "title": "Valid Languages",
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "id_hash_keys": {
+              "title": "Id Hash Keys",
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "progress_bar": {
+              "title": "Progress Bar",
               "default": true,
               "type": "boolean"
             }
