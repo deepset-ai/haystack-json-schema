@@ -98,12 +98,6 @@
             "$ref": "#/definitions/EntityExtractorComponent"
           },
           {
-            "$ref": "#/definitions/EvalAnswersComponent"
-          },
-          {
-            "$ref": "#/definitions/EvalDocumentsComponent"
-          },
-          {
             "$ref": "#/definitions/FARMReaderComponent"
           },
           {
@@ -3290,105 +3284,6 @@
                   "type": "null"
                 }
               ]
-            }
-          },
-          "additionalProperties": false,
-          "description": "Each parameter can reference other components defined in the same YAML file."
-        }
-      },
-      "required": [
-        "type",
-        "name"
-      ],
-      "additionalProperties": false
-    },
-    "EvalAnswersComponent": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "title": "Name",
-          "description": "Custom name for the component. Helpful for visualization and debugging.",
-          "type": "string"
-        },
-        "type": {
-          "title": "Type",
-          "description": "Haystack Class name for the component.",
-          "type": "string",
-          "const": "EvalAnswers"
-        },
-        "params": {
-          "title": "Parameters",
-          "type": "object",
-          "properties": {
-            "skip_incorrect_retrieval": {
-              "title": "Skip Incorrect Retrieval",
-              "default": true,
-              "type": "boolean"
-            },
-            "open_domain": {
-              "title": "Open Domain",
-              "default": true,
-              "type": "boolean"
-            },
-            "sas_model": {
-              "title": "Sas Model",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "debug": {
-              "title": "Debug",
-              "default": false,
-              "type": "boolean"
-            }
-          },
-          "additionalProperties": false,
-          "description": "Each parameter can reference other components defined in the same YAML file."
-        }
-      },
-      "required": [
-        "type",
-        "name"
-      ],
-      "additionalProperties": false
-    },
-    "EvalDocumentsComponent": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "title": "Name",
-          "description": "Custom name for the component. Helpful for visualization and debugging.",
-          "type": "string"
-        },
-        "type": {
-          "title": "Type",
-          "description": "Haystack Class name for the component.",
-          "type": "string",
-          "const": "EvalDocuments"
-        },
-        "params": {
-          "title": "Parameters",
-          "type": "object",
-          "properties": {
-            "debug": {
-              "title": "Debug",
-              "default": false,
-              "type": "boolean"
-            },
-            "open_domain": {
-              "title": "Open Domain",
-              "default": true,
-              "type": "boolean"
-            },
-            "top_k": {
-              "title": "Top K",
-              "default": 10,
-              "type": "integer"
             }
           },
           "additionalProperties": false,
