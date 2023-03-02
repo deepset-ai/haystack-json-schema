@@ -4287,6 +4287,28 @@
               "title": "Api Key",
               "type": "string"
             },
+            "azure_base_url": {
+              "title": "Azure Base Url",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "azure_deployment_name": {
+              "title": "Azure Deployment Name",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
             "model": {
               "title": "Model",
               "default": "text-davinci-003",
@@ -4296,6 +4318,11 @@
               "title": "Max Tokens",
               "default": 50,
               "type": "integer"
+            },
+            "api_version": {
+              "title": "Api Version",
+              "default": "2022-12-01",
+              "type": "string"
             },
             "top_k": {
               "title": "Top K",
