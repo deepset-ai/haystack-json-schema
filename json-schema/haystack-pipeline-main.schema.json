@@ -3124,6 +3124,33 @@
                   "type": "null"
                 }
               ]
+            },
+            "azure_api_version": {
+              "title": "Azure Api Version",
+              "default": "2022-12-01",
+              "type": "string"
+            },
+            "azure_base_url": {
+              "title": "Azure Base Url",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "azure_deployment_name": {
+              "title": "Azure Deployment Name",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
