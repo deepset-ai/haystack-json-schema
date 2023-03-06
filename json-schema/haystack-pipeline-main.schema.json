@@ -4983,6 +4983,17 @@
                 }
               ]
             },
+            "invocation_layer_class": {
+              "title": "Invocation Layer Class",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
             "model_kwargs": {
               "title": "Model Kwargs",
               "anyOf": [
