@@ -4984,15 +4984,7 @@
               ]
             },
             "invocation_layer_class": {
-              "title": "Invocation Layer Class",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "title": "Invocation Layer Class"
             },
             "model_kwargs": {
               "title": "Model Kwargs",
