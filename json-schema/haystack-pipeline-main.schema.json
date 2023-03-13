@@ -4530,6 +4530,26 @@
               "default": false,
               "type": "boolean"
             },
+            "ocr": {
+              "title": "Ocr",
+              "enum": [
+                "auto",
+                "full"
+              ],
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "ocr_language": {
+              "title": "Ocr Language",
+              "default": "eng",
+              "type": "string"
+            },
             "multiprocessing": {
               "title": "Multiprocessing",
               "default": true,
