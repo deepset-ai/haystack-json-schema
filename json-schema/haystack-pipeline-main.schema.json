@@ -213,6 +213,9 @@
           },
           {
             "$ref": "#/definitions/TransformersTranslatorComponent"
+          },
+          {
+            "$ref": "#/definitions/WhisperTranscriberComponent"
           }
         ]
       },
@@ -7545,6 +7548,72 @@
           "required": [
             "model_name_or_path"
           ],
+          "additionalProperties": false,
+          "description": "Each parameter can reference other components defined in the same YAML file."
+        }
+      },
+      "required": [
+        "type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "WhisperTranscriberComponent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "description": "Custom name for the component. Helpful for visualization and debugging.",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "description": "Haystack Class name for the component.",
+          "type": "string",
+          "const": "WhisperTranscriber"
+        },
+        "params": {
+          "title": "Parameters",
+          "type": "object",
+          "properties": {
+            "api_key": {
+              "title": "Api Key",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "model_name_or_path": {
+              "title": "Model Name Or Path",
+              "default": "medium",
+              "enum": [
+                "tiny",
+                "small",
+                "medium",
+                "large",
+                "large-v2"
+              ],
+              "type": "string"
+            },
+            "device": {
+              "title": "Device",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
           "additionalProperties": false,
           "description": "Each parameter can reference other components defined in the same YAML file."
         }
