@@ -4913,18 +4913,6 @@
               "default": 1,
               "type": "integer"
             },
-            "debug": {
-              "title": "Debug",
-              "default": false,
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
             "model_kwargs": {
               "title": "Model Kwargs",
               "anyOf": [
