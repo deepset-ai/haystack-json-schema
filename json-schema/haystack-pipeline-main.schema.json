@@ -4973,14 +4973,12 @@
               "title": "Prompt Text",
               "type": "string"
             },
-            "prompt_params": {
-              "title": "Prompt Params",
+            "output_parser": {
+              "title": "Output Parser",
+              "default": null,
               "anyOf": [
                 {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                  "type": "string"
                 },
                 {
                   "type": "null"
