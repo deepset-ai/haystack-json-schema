@@ -59,16 +59,10 @@
             "$ref": "#/definitions/WeaviateDocumentStoreComponent"
           },
           {
-            "$ref": "#/definitions/AnswerParserComponent"
-          },
-          {
             "$ref": "#/definitions/AzureConverterComponent"
           },
           {
             "$ref": "#/definitions/BM25RetrieverComponent"
-          },
-          {
-            "$ref": "#/definitions/BaseOutputParserComponent"
           },
           {
             "$ref": "#/definitions/CrawlerComponent"
@@ -1909,57 +1903,6 @@
       ],
       "additionalProperties": false
     },
-    "AnswerParserComponent": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "title": "Name",
-          "description": "Custom name for the component. Helpful for visualization and debugging.",
-          "type": "string"
-        },
-        "type": {
-          "title": "Type",
-          "description": "Haystack Class name for the component.",
-          "type": "string",
-          "const": "AnswerParser"
-        },
-        "params": {
-          "title": "Parameters",
-          "type": "object",
-          "properties": {
-            "pattern": {
-              "title": "Pattern",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "reference_pattern": {
-              "title": "Reference Pattern",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            }
-          },
-          "additionalProperties": false,
-          "description": "Each parameter can reference other components defined in the same YAML file."
-        }
-      },
-      "required": [
-        "type",
-        "name"
-      ],
-      "additionalProperties": false
-    },
     "AzureConverterComponent": {
       "type": "object",
       "properties": {
@@ -2116,100 +2059,6 @@
               "type": "boolean"
             }
           },
-          "additionalProperties": false,
-          "description": "Each parameter can reference other components defined in the same YAML file."
-        }
-      },
-      "required": [
-        "type",
-        "name"
-      ],
-      "additionalProperties": false
-    },
-    "BaseOutputParserComponent": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "title": "Name",
-          "description": "Custom name for the component. Helpful for visualization and debugging.",
-          "type": "string"
-        },
-        "type": {
-          "title": "Type",
-          "description": "Haystack Class name for the component.",
-          "type": "string",
-          "const": "BaseOutputParser"
-        },
-        "params": {
-          "title": "Parameters",
-          "type": "object",
-          "properties": {
-            "func": {
-              "title": "Func",
-              "type": "string"
-            },
-            "outputs": {
-              "title": "Outputs",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "inputs": {
-              "title": "Inputs",
-              "additionalProperties": {
-                "anyOf": [
-                  {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  {
-                    "type": "string"
-                  }
-                ]
-              },
-              "anyOf": [
-                {
-                  "type": "object"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "params": {
-              "title": "Params",
-              "anyOf": [
-                {
-                  "type": "object"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "publish_outputs": {
-              "title": "Publish Outputs",
-              "default": true,
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              ]
-            }
-          },
-          "required": [
-            "func",
-            "outputs"
-          ],
           "additionalProperties": false,
           "description": "Each parameter can reference other components defined in the same YAML file."
         }
