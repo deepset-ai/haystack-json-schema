@@ -4271,6 +4271,7 @@
             },
             "encoding": {
               "title": "Encoding",
+              "default": "UTF-8",
               "anyOf": [
                 {
                   "type": "string"
@@ -4282,51 +4283,8 @@
             },
             "keep_physical_layout": {
               "title": "Keep Physical Layout",
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "sort_by_position": {
-              "title": "Sort By Position",
               "default": false,
               "type": "boolean"
-            },
-            "ocr": {
-              "title": "Ocr",
-              "enum": [
-                "auto",
-                "full"
-              ],
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "ocr_language": {
-              "title": "Ocr Language",
-              "default": "eng",
-              "type": "string"
-            },
-            "multiprocessing": {
-              "title": "Multiprocessing",
-              "default": true,
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "type": "integer"
-                }
-              ]
             }
           },
           "additionalProperties": false,
