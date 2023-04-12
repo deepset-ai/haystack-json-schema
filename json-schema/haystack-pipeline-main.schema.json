@@ -5080,8 +5080,7 @@
               ]
             },
             "retriever": {
-              "title": "Retriever",
-              "type": "string"
+              "title": "Retriever"
             },
             "cross_encoder_model_name_or_path": {
               "title": "Cross Encoder Model Name Or Path",
@@ -5343,16 +5342,7 @@
               ]
             },
             "retriever": {
-              "title": "Retriever",
-              "default": null,
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "title": "Retriever"
             },
             "generator_type": {
               "title": "Generator Type",
