@@ -5586,9 +5586,23 @@
                   }
                 },
                 {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
                   "type": "null"
                 }
               ]
+            },
+            "return_remaining": {
+              "title": "Return Remaining",
+              "default": false,
+              "type": "boolean"
             }
           },
           "additionalProperties": false,
