@@ -408,6 +408,20 @@
           "$ref": "https://raw.githubusercontent.com/deepset-ai/haystack-json-schema/main/json-schema/haystack-pipeline-1.15.1.schema.json"
         }
       ]
+    },
+    {
+      "allOf": [
+        {
+          "properties": {
+            "version": {
+              "const": "1.16.0"
+            }
+          }
+        },
+        {
+          "$ref": "https://raw.githubusercontent.com/deepset-ai/haystack-json-schema/main/json-schema/haystack-pipeline-1.16.0.schema.json"
+        }
+      ]
     }
   ],
   "title": "Haystack Pipeline",
