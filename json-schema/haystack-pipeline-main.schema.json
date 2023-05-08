@@ -5007,20 +5007,13 @@
           "title": "Parameters",
           "type": "object",
           "properties": {
+            "name": {
+              "title": "Name",
+              "type": "string"
+            },
             "prompt_text": {
               "title": "Prompt Text",
               "type": "string"
-            },
-            "template_name": {
-              "title": "Template Name",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
             },
             "output_parser": {
               "title": "Output Parser",
@@ -5035,20 +5028,10 @@
                   "type": "null"
                 }
               ]
-            },
-            "name": {
-              "title": "Name",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
             }
           },
           "required": [
+            "name",
             "prompt_text"
           ],
           "additionalProperties": false,
