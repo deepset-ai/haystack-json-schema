@@ -765,16 +765,7 @@
               "type": "string"
             },
             "faiss_index": {
-              "title": "Faiss Index",
-              "default": null,
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "title": "Faiss Index"
             },
             "return_embedding": {
               "title": "Return Embedding",
@@ -1593,16 +1584,7 @@
               "type": "string"
             },
             "pinecone_index": {
-              "title": "Pinecone Index",
-              "default": null,
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "title": "Pinecone Index"
             },
             "embedding_dim": {
               "title": "Embedding Dim",
@@ -4331,7 +4313,6 @@
             },
             "encoding": {
               "title": "Encoding",
-              "default": "UTF-8",
               "anyOf": [
                 {
                   "type": "string"
@@ -4343,8 +4324,51 @@
             },
             "keep_physical_layout": {
               "title": "Keep Physical Layout",
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "sort_by_position": {
+              "title": "Sort By Position",
               "default": false,
               "type": "boolean"
+            },
+            "ocr": {
+              "title": "Ocr",
+              "enum": [
+                "auto",
+                "full"
+              ],
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "ocr_language": {
+              "title": "Ocr Language",
+              "default": "eng",
+              "type": "string"
+            },
+            "multiprocessing": {
+              "title": "Multiprocessing",
+              "default": true,
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
             }
           },
           "additionalProperties": false,
