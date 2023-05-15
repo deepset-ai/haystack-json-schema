@@ -2154,13 +2154,13 @@
               "additionalProperties": {
                 "anyOf": [
                   {
-                    "type": "string"
-                  },
-                  {
                     "type": "array",
                     "items": {
                       "type": "string"
                     }
+                  },
+                  {
+                    "type": "string"
                   }
                 ]
               },
@@ -5906,13 +5906,13 @@
               "additionalProperties": {
                 "anyOf": [
                   {
-                    "type": "string"
-                  },
-                  {
                     "type": "array",
                     "items": {
                       "type": "string"
                     }
+                  },
+                  {
+                    "type": "string"
                   }
                 ]
               },
