@@ -7053,7 +7053,7 @@
           "properties": {
             "model_name_or_path": {
               "title": "Model Name Or Path",
-              "default": "nlpconnect/vit-gpt2-image-captioning",
+              "default": "Salesforce/blip-image-captioning-base",
               "type": "string"
             },
             "model_version": {
