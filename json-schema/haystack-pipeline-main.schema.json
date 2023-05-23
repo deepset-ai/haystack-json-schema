@@ -4812,12 +4812,8 @@
           "title": "Parameters",
           "type": "object",
           "properties": {
-            "name": {
-              "title": "Name",
-              "type": "string"
-            },
-            "prompt_text": {
-              "title": "Prompt Text",
+            "prompt": {
+              "title": "Prompt",
               "type": "string"
             },
             "output_parser": {
@@ -4836,8 +4832,7 @@
             }
           },
           "required": [
-            "name",
-            "prompt_text"
+            "prompt"
           ],
           "additionalProperties": false,
           "description": "Each parameter can reference other components defined in the same YAML file."
