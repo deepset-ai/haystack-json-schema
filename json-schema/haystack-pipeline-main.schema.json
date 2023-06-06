@@ -649,7 +649,7 @@
             },
             "timeout": {
               "title": "Timeout",
-              "default": 30,
+              "default": 300,
               "type": "integer"
             },
             "return_embedding": {
@@ -693,6 +693,11 @@
               "title": "Use System Proxy",
               "default": false,
               "type": "boolean"
+            },
+            "batch_size": {
+              "title": "Batch Size",
+              "default": 10000,
+              "type": "integer"
             }
           },
           "additionalProperties": false,
@@ -1189,7 +1194,7 @@
             },
             "timeout": {
               "title": "Timeout",
-              "default": 30,
+              "default": 300,
               "type": "integer"
             },
             "return_embedding": {
@@ -1265,6 +1270,11 @@
                   "type": "null"
                 }
               ]
+            },
+            "batch_size": {
+              "title": "Batch Size",
+              "default": 10000,
+              "type": "integer"
             }
           },
           "additionalProperties": false,
@@ -2689,6 +2699,11 @@
                   "type": "null"
                 }
               ]
+            },
+            "api_base": {
+              "title": "Api Base",
+              "default": "https://api.openai.com/v1",
+              "type": "string"
             }
           },
           "required": [
@@ -4022,6 +4037,11 @@
             "context_join_str": {
               "title": "Context Join Str",
               "default": " ",
+              "type": "string"
+            },
+            "api_base": {
+              "title": "Api Base",
+              "default": "https://api.openai.com/v1",
               "type": "string"
             }
           },
@@ -7492,6 +7512,11 @@
                   "type": "null"
                 }
               ]
+            },
+            "api_base": {
+              "title": "Api Base",
+              "default": "https://api.openai.com/v1",
+              "type": "string"
             }
           },
           "additionalProperties": false,
