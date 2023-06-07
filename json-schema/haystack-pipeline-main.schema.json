@@ -1679,6 +1679,11 @@
               "title": "Replication Factor",
               "default": 1,
               "type": "integer"
+            },
+            "batch_size": {
+              "title": "Batch Size",
+              "default": 10000,
+              "type": "integer"
             }
           },
           "additionalProperties": false,
