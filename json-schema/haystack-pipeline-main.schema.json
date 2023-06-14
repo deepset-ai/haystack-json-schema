@@ -944,9 +944,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -2346,9 +2344,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -2623,9 +2619,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -2797,9 +2791,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -2939,9 +2931,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -3697,9 +3687,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -3843,9 +3831,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -4499,9 +4485,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -4648,9 +4632,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -4854,9 +4836,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -5003,9 +4983,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -5137,9 +5115,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -5399,9 +5375,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -5541,9 +5515,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -5819,9 +5791,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -6000,9 +5970,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -6341,9 +6309,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -6489,9 +6455,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -6628,9 +6592,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -6734,9 +6696,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -6867,9 +6827,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -6998,9 +6956,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -7119,9 +7075,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -7231,9 +7185,7 @@
                       {
                         "type": "string"
                       },
-                      {
-                        "type": "string"
-                      }
+                      {}
                     ]
                   }
                 },
@@ -7507,9 +7459,6 @@
             "device": {
               "title": "Device",
               "anyOf": [
-                {
-                  "type": "string"
-                },
                 {
                   "type": "string"
                 },
