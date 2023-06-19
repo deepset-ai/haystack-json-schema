@@ -4030,6 +4030,11 @@
               "default": " ",
               "type": "string"
             },
+            "moderate_content": {
+              "title": "Moderate Content",
+              "default": false,
+              "type": "boolean"
+            },
             "api_base": {
               "title": "Api Base",
               "default": "https://api.openai.com/v1",
