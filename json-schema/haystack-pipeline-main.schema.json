@@ -1539,17 +1539,6 @@
                 }
               ]
             },
-            "client_secret": {
-              "title": "Client Secret",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
             "scope": {
               "title": "Scope",
               "default": "offline_access",
@@ -1562,8 +1551,8 @@
                 }
               ]
             },
-            "access_token": {
-              "title": "Access Token",
+            "api_key": {
+              "title": "Api Key",
               "anyOf": [
                 {
                   "type": "string"
@@ -1573,23 +1562,16 @@
                 }
               ]
             },
-            "expires_in": {
-              "title": "Expires In",
-              "default": 60,
-              "anyOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+            "use_embedded": {
+              "title": "Use Embedded",
+              "default": false,
+              "type": "boolean"
             },
-            "refresh_token": {
-              "title": "Refresh Token",
+            "embedded_options": {
+              "title": "Embedded Options",
               "anyOf": [
                 {
-                  "type": "string"
+                  "type": "object"
                 },
                 {
                   "type": "null"
