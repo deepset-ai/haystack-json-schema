@@ -146,9 +146,6 @@
             "$ref": "#/definitions/QuestionGeneratorComponent"
           },
           {
-            "$ref": "#/definitions/RAGeneratorComponent"
-          },
-          {
             "$ref": "#/definitions/RCIReaderComponent"
           },
           {
@@ -156,9 +153,6 @@
           },
           {
             "$ref": "#/definitions/SentenceTransformersRankerComponent"
-          },
-          {
-            "$ref": "#/definitions/Seq2SeqGeneratorComponent"
           },
           {
             "$ref": "#/definitions/ShaperComponent"
@@ -4990,138 +4984,6 @@
       ],
       "additionalProperties": false
     },
-    "RAGeneratorComponent": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "title": "Name",
-          "description": "Custom name for the component. Helpful for visualization and debugging.",
-          "type": "string"
-        },
-        "type": {
-          "title": "Type",
-          "description": "Haystack Class name for the component.",
-          "type": "string",
-          "const": "RAGenerator"
-        },
-        "params": {
-          "title": "Parameters",
-          "type": "object",
-          "properties": {
-            "model_name_or_path": {
-              "title": "Model Name Or Path",
-              "default": "facebook/rag-token-nq",
-              "type": "string"
-            },
-            "model_version": {
-              "title": "Model Version",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "retriever": {
-              "title": "Retriever"
-            },
-            "generator_type": {
-              "title": "Generator Type",
-              "default": "token",
-              "type": "string"
-            },
-            "top_k": {
-              "title": "Top K",
-              "default": 2,
-              "type": "integer"
-            },
-            "max_length": {
-              "title": "Max Length",
-              "default": 200,
-              "type": "integer"
-            },
-            "min_length": {
-              "title": "Min Length",
-              "default": 2,
-              "type": "integer"
-            },
-            "num_beams": {
-              "title": "Num Beams",
-              "default": 2,
-              "type": "integer"
-            },
-            "embed_title": {
-              "title": "Embed Title",
-              "default": true,
-              "type": "boolean"
-            },
-            "prefix": {
-              "title": "Prefix",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "use_gpu": {
-              "title": "Use Gpu",
-              "default": true,
-              "type": "boolean"
-            },
-            "progress_bar": {
-              "title": "Progress Bar",
-              "default": true,
-              "type": "boolean"
-            },
-            "use_auth_token": {
-              "title": "Use Auth Token",
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "devices": {
-              "title": "Devices",
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {}
-                    ]
-                  }
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            }
-          },
-          "additionalProperties": false,
-          "description": "Each parameter can reference other components defined in the same YAML file."
-        }
-      },
-      "required": [
-        "type",
-        "name"
-      ],
-      "additionalProperties": false
-    },
     "RCIReaderComponent": {
       "type": "object",
       "properties": {
@@ -5394,117 +5256,6 @@
                 },
                 {
                   "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            }
-          },
-          "required": [
-            "model_name_or_path"
-          ],
-          "additionalProperties": false,
-          "description": "Each parameter can reference other components defined in the same YAML file."
-        }
-      },
-      "required": [
-        "type",
-        "name"
-      ],
-      "additionalProperties": false
-    },
-    "Seq2SeqGeneratorComponent": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "title": "Name",
-          "description": "Custom name for the component. Helpful for visualization and debugging.",
-          "type": "string"
-        },
-        "type": {
-          "title": "Type",
-          "description": "Haystack Class name for the component.",
-          "type": "string",
-          "const": "Seq2SeqGenerator"
-        },
-        "params": {
-          "title": "Parameters",
-          "type": "object",
-          "properties": {
-            "model_name_or_path": {
-              "title": "Model Name Or Path",
-              "type": "string"
-            },
-            "input_converter": {
-              "title": "Input Converter",
-              "default": null,
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "top_k": {
-              "title": "Top K",
-              "default": 1,
-              "type": "integer"
-            },
-            "max_length": {
-              "title": "Max Length",
-              "default": 200,
-              "type": "integer"
-            },
-            "min_length": {
-              "title": "Min Length",
-              "default": 2,
-              "type": "integer"
-            },
-            "num_beams": {
-              "title": "Num Beams",
-              "default": 8,
-              "type": "integer"
-            },
-            "use_gpu": {
-              "title": "Use Gpu",
-              "default": true,
-              "type": "boolean"
-            },
-            "progress_bar": {
-              "title": "Progress Bar",
-              "default": true,
-              "type": "boolean"
-            },
-            "use_auth_token": {
-              "title": "Use Auth Token",
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "devices": {
-              "title": "Devices",
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {}
-                    ]
-                  }
                 },
                 {
                   "type": "null"
