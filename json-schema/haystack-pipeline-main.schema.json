@@ -62,6 +62,9 @@
             "$ref": "#/definitions/BaseOutputParserComponent"
           },
           {
+            "$ref": "#/definitions/CohereRankerComponent"
+          },
+          {
             "$ref": "#/definitions/CrawlerComponent"
           },
           {
@@ -1970,6 +1973,63 @@
           "required": [
             "func",
             "outputs"
+          ],
+          "additionalProperties": false,
+          "description": "Each parameter can reference other components defined in the same YAML file."
+        }
+      },
+      "required": [
+        "type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "CohereRankerComponent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "description": "Custom name for the component. Helpful for visualization and debugging.",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "description": "Haystack Class name for the component.",
+          "type": "string",
+          "const": "CohereRanker"
+        },
+        "params": {
+          "title": "Parameters",
+          "type": "object",
+          "properties": {
+            "api_key": {
+              "title": "Api Key",
+              "type": "string"
+            },
+            "model_name_or_path": {
+              "title": "Model Name Or Path",
+              "type": "string"
+            },
+            "top_k": {
+              "title": "Top K",
+              "default": 10,
+              "type": "integer"
+            },
+            "max_chunks_per_doc": {
+              "title": "Max Chunks Per Doc",
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "api_key",
+            "model_name_or_path"
           ],
           "additionalProperties": false,
           "description": "Each parameter can reference other components defined in the same YAML file."
