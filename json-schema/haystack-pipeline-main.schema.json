@@ -3088,6 +3088,17 @@
               "title": "Max Query Length",
               "default": 64,
               "type": "integer"
+            },
+            "preprocessing_batch_size": {
+              "title": "Preprocessing Batch Size",
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
