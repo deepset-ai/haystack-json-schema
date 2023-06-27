@@ -5155,11 +5155,6 @@
                   "type": "null"
                 }
               ]
-            },
-            "return_table_cell": {
-              "title": "Return Table Cell",
-              "default": false,
-              "type": "boolean"
             }
           },
           "additionalProperties": false,
@@ -5608,11 +5603,6 @@
                   "type": "null"
                 }
               ]
-            },
-            "return_table_cell": {
-              "title": "Return Table Cell",
-              "default": false,
-              "type": "boolean"
             }
           },
           "additionalProperties": false,
