@@ -2739,6 +2739,17 @@
               "title": "Api Base",
               "default": "https://api.openai.com/v1",
               "type": "string"
+            },
+            "openai_organization": {
+              "title": "Openai Organization",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -4086,6 +4097,17 @@
               "title": "Api Base",
               "default": "https://api.openai.com/v1",
               "type": "string"
+            },
+            "openai_organization": {
+              "title": "Openai Organization",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
