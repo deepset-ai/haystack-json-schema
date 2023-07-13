@@ -113,6 +113,9 @@
             "$ref": "#/definitions/LangdetectDocumentLanguageClassifierComponent"
           },
           {
+            "$ref": "#/definitions/LinkContentFetcherComponent"
+          },
+          {
             "$ref": "#/definitions/MarkdownConverterComponent"
           },
           {
@@ -3523,6 +3526,59 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "description": "Each parameter can reference other components defined in the same YAML file."
+        }
+      },
+      "required": [
+        "type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "LinkContentFetcherComponent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "description": "Custom name for the component. Helpful for visualization and debugging.",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "description": "Haystack Class name for the component.",
+          "type": "string",
+          "const": "LinkContentFetcher"
+        },
+        "params": {
+          "title": "Parameters",
+          "type": "object",
+          "properties": {
+            "processor": {
+              "title": "Processor",
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "raise_on_failure": {
+              "title": "Raise On Failure",
+              "default": false,
+              "anyOf": [
+                {
+                  "type": "boolean"
                 },
                 {
                   "type": "null"
