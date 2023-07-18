@@ -2028,6 +2028,20 @@
                   "type": "null"
                 }
               ]
+            },
+            "embed_meta_fields": {
+              "title": "Embed Meta Fields",
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -5400,6 +5414,20 @@
                 },
                 {
                   "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "embed_meta_fields": {
+              "title": "Embed Meta Fields",
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 {
                   "type": "null"
