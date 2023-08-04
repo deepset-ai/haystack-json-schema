@@ -440,6 +440,19 @@
               "title": "Use Prefiltering",
               "default": false,
               "type": "boolean"
+            },
+            "search_fields": {
+              "title": "Search Fields",
+              "default": "content",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {}
+                }
+              ]
             }
           },
           "additionalProperties": false,
