@@ -3186,6 +3186,11 @@
                   "type": "null"
                 }
               ]
+            },
+            "full_analysis": {
+              "title": "Full Analysis",
+              "default": false,
+              "type": "boolean"
             }
           },
           "additionalProperties": false,
