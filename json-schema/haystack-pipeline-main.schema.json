@@ -3593,6 +3593,20 @@
           "title": "Parameters",
           "type": "object",
           "properties": {
+            "content_handlers": {
+              "title": "Content Handlers",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
             "processor": {
               "title": "Processor",
               "default": null,
@@ -3611,6 +3625,31 @@
               "anyOf": [
                 {
                   "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "user_agents": {
+              "title": "User Agents",
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "retry_attempts": {
+              "title": "Retry Attempts",
+              "anyOf": [
+                {
+                  "type": "integer"
                 },
                 {
                   "type": "null"
