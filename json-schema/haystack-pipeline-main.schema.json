@@ -7204,6 +7204,20 @@
                 }
               ]
             },
+            "allowed_domains": {
+              "title": "Allowed Domains",
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
             "top_search_results": {
               "title": "Top Search Results",
               "default": 10,
@@ -7334,6 +7348,20 @@
               "anyOf": [
                 {
                   "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "allowed_domains": {
+              "title": "Allowed Domains",
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 {
                   "type": "null"
