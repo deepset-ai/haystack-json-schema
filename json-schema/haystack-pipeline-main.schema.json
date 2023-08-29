@@ -7204,32 +7204,6 @@
                 }
               ]
             },
-            "allowed_domains": {
-              "title": "Allowed Domains",
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "link_content_fetcher": {
-              "title": "Link Content Fetcher",
-              "default": null,
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
             "top_search_results": {
               "title": "Top Search Results",
               "default": 10,
@@ -7317,6 +7291,32 @@
               "title": "Cache Time",
               "default": 86400,
               "type": "integer"
+            },
+            "allowed_domains": {
+              "title": "Allowed Domains",
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "link_content_fetcher": {
+              "title": "Link Content Fetcher",
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
