@@ -7218,6 +7218,18 @@
                 }
               ]
             },
+            "link_content_fetcher": {
+              "title": "Link Content Fetcher",
+              "default": null,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
             "top_search_results": {
               "title": "Top Search Results",
               "default": 10,
