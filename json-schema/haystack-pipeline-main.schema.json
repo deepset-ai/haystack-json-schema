@@ -164,9 +164,6 @@
             "$ref": "#/definitions/ShaperComponent"
           },
           {
-            "$ref": "#/definitions/SklearnQueryClassifierComponent"
-          },
-          {
             "$ref": "#/definitions/TableReaderComponent"
           },
           {
@@ -5589,71 +5586,6 @@
             "func",
             "outputs"
           ],
-          "additionalProperties": false,
-          "description": "Each parameter can reference other components defined in the same YAML file."
-        }
-      },
-      "required": [
-        "type",
-        "name"
-      ],
-      "additionalProperties": false
-    },
-    "SklearnQueryClassifierComponent": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "title": "Name",
-          "description": "Custom name for the component. Helpful for visualization and debugging.",
-          "type": "string"
-        },
-        "type": {
-          "title": "Type",
-          "description": "Haystack Class name for the component.",
-          "type": "string",
-          "const": "SklearnQueryClassifier"
-        },
-        "params": {
-          "title": "Parameters",
-          "type": "object",
-          "properties": {
-            "model_name_or_path": {
-              "title": "Model Name Or Path",
-              "default": "https://ext-models-haystack.s3.eu-central-1.amazonaws.com/gradboost_query_classifier_2022/model.pickle",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {}
-              ]
-            },
-            "vectorizer_name_or_path": {
-              "title": "Vectorizer Name Or Path",
-              "default": "https://ext-models-haystack.s3.eu-central-1.amazonaws.com/gradboost_query_classifier_2022/vectorizer.pickle",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {}
-              ]
-            },
-            "batch_size": {
-              "title": "Batch Size",
-              "anyOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "progress_bar": {
-              "title": "Progress Bar",
-              "default": true,
-              "type": "boolean"
-            }
-          },
           "additionalProperties": false,
           "description": "Each parameter can reference other components defined in the same YAML file."
         }
