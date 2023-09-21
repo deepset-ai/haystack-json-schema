@@ -47,6 +47,9 @@
             "$ref": "#/definitions/SQLDocumentStoreComponent"
           },
           {
+            "$ref": "#/definitions/QdrantDocumentStoreComponent"
+          },
+          {
             "$ref": "#/definitions/WeaviateDocumentStoreComponent"
           },
           {
@@ -1480,6 +1483,145 @@
         "name"
       ],
       "additionalProperties": false
+    },"QdrantDocumentStoreComponent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "description": "Custom name for the component. Helpful for visualization and debugging.",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "description": "Haystack Class name for the component.",
+          "type": "string",
+          "const": "QdrantDocumentStore"
+        },
+        "params": {
+          "title": "Parameters",
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "string"
+            },
+            "url": {
+              "title": "URL",
+              "default": "localhost:6333",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "port" : {
+              "type": "number"
+            },
+            "grpc_port": {
+              "type": "number"
+            },
+            "prefer_grpc": {
+              "type": "boolean"
+            },
+            "https": {
+              "type": "boolean"
+            },
+            "api_key": {
+              "type": "string"
+            },
+            "prefix": {
+              "type": "string"
+            },
+            "timeout": {
+              "type": "number"
+            },
+            "host": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "index": {
+              "type": "string",
+              "default": "Document"
+            },
+            "embedding_dim": {
+              "type": "number"
+            },
+            "content_field": {
+              "type": "string",
+              "default": "content"
+            },
+            "name_field": {
+              "type": "string",
+              "default": "name"
+            },
+            "embedding_field": {
+              "type": "string",
+              "default": "vector"
+            },
+            "similarity": {
+              "type": "string",
+              "enum": ["cosine", "dot_product", "l2"],
+              "default": "cosine"
+            },
+            "return_embedding": {
+              "type": "boolean",
+              "default": false
+            },
+            "progress_bar": {
+              "type": "boolean",
+              "default": true
+            },
+            "duplicate_documents": {
+              "type": "string",
+              "default": "overwrite"
+            },
+            "recreate_index": {
+              "type": "boolean",
+              "default": false
+            },
+            "shard_number": {
+              "type": "number"
+            },
+            "replication_factor": {
+              "type": "number"
+            },
+            "write_consistency_factor": {
+              "type": "number"
+            },
+            "on_disk_payload": {
+              "type": "boolean"
+            },
+            "hnsw_config": {
+              "type": "object"
+            },
+            "optimizers_config": {
+              "type": "object"
+            },
+            "wal_config": {
+              "type": "object"
+            },
+            "quantization_config": {
+              "type": "object"
+            },
+            "init_from": {
+              "type": "object"
+            },
+            "wait_result_from_api": {
+              "type": "boolean"
+            },
+            "metadata": {
+              "type": "object"
+            }
+          }
+        }
+      }
     },
     "WeaviateDocumentStoreComponent": {
       "type": "object",
