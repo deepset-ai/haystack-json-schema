@@ -7147,6 +7147,17 @@
                 }
               ]
             },
+            "search_engine_kwargs": {
+              "title": "Search Engine Kwargs",
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
             "top_search_results": {
               "title": "Top Search Results",
               "default": 10,
