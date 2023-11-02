@@ -74,6 +74,9 @@
             "$ref": "#/definitions/DensePassageRetrieverComponent"
           },
           {
+            "$ref": "#/definitions/DiversityRankerComponent"
+          },
+          {
             "$ref": "#/definitions/Docs2AnswersComponent"
           },
           {
@@ -116,6 +119,9 @@
             "$ref": "#/definitions/LinkContentFetcherComponent"
           },
           {
+            "$ref": "#/definitions/LostInTheMiddleRankerComponent"
+          },
+          {
             "$ref": "#/definitions/MarkdownConverterComponent"
           },
           {
@@ -153,6 +159,9 @@
           },
           {
             "$ref": "#/definitions/RCIReaderComponent"
+          },
+          {
+            "$ref": "#/definitions/RecentnessRankerComponent"
           },
           {
             "$ref": "#/definitions/RouteDocumentsComponent"
@@ -2457,6 +2466,99 @@
       ],
       "additionalProperties": false
     },
+    "DiversityRankerComponent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "description": "Custom name for the component. Helpful for visualization and debugging.",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "description": "Haystack Class name for the component.",
+          "type": "string",
+          "const": "DiversityRanker"
+        },
+        "params": {
+          "title": "Parameters",
+          "type": "object",
+          "properties": {
+            "model_name_or_path": {
+              "title": "Model Name Or Path",
+              "default": "all-MiniLM-L6-v2",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string",
+                  "format": "path"
+                }
+              ]
+            },
+            "top_k": {
+              "title": "Top K",
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "use_gpu": {
+              "title": "Use Gpu",
+              "default": true,
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "devices": {
+              "title": "Devices",
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {}
+                    ]
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "similarity": {
+              "title": "Similarity",
+              "default": "dot_product",
+              "enum": [
+                "dot_product",
+                "cosine"
+              ],
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "description": "Each parameter can reference other components defined in the same YAML file."
+        }
+      },
+      "required": [
+        "type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
     "Docs2AnswersComponent": {
       "type": "object",
       "properties": {
@@ -3655,6 +3757,57 @@
             },
             "retry_attempts": {
               "title": "Retry Attempts",
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "description": "Each parameter can reference other components defined in the same YAML file."
+        }
+      },
+      "required": [
+        "type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "LostInTheMiddleRankerComponent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "description": "Custom name for the component. Helpful for visualization and debugging.",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "description": "Haystack Class name for the component.",
+          "type": "string",
+          "const": "LostInTheMiddleRanker"
+        },
+        "params": {
+          "title": "Parameters",
+          "type": "object",
+          "properties": {
+            "word_count_threshold": {
+              "title": "Word Count Threshold",
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "top_k": {
+              "title": "Top K",
               "anyOf": [
                 {
                   "type": "integer"
@@ -5314,6 +5467,67 @@
               ]
             }
           },
+          "additionalProperties": false,
+          "description": "Each parameter can reference other components defined in the same YAML file."
+        }
+      },
+      "required": [
+        "type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "RecentnessRankerComponent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "description": "Custom name for the component. Helpful for visualization and debugging.",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "description": "Haystack Class name for the component.",
+          "type": "string",
+          "const": "RecentnessRanker"
+        },
+        "params": {
+          "title": "Parameters",
+          "type": "object",
+          "properties": {
+            "date_meta_field": {
+              "title": "Date Meta Field",
+              "type": "string"
+            },
+            "weight": {
+              "title": "Weight",
+              "default": 0.5,
+              "type": "number"
+            },
+            "top_k": {
+              "title": "Top K",
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "ranking_mode": {
+              "title": "Ranking Mode",
+              "default": "reciprocal_rank_fusion",
+              "enum": [
+                "reciprocal_rank_fusion",
+                "score"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "date_meta_field"
+          ],
           "additionalProperties": false,
           "description": "Each parameter can reference other components defined in the same YAML file."
         }
