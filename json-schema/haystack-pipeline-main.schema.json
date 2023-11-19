@@ -4812,6 +4812,17 @@
                 }
               ]
             },
+            "timeout": {
+              "title": "Timeout",
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
             "use_auth_token": {
               "title": "Use Auth Token",
               "anyOf": [
@@ -4953,6 +4964,17 @@
               "anyOf": [
                 {
                   "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "timeout": {
+              "title": "Timeout",
+              "anyOf": [
+                {
+                  "type": "number"
                 },
                 {
                   "type": "null"
