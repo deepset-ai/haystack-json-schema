@@ -2770,6 +2770,28 @@
               "default": "reduce_mean",
               "type": "string"
             },
+            "query_prompt": {
+              "title": "Query Prompt",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "passage_prompt": {
+              "title": "Passage Prompt",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
             "emb_extraction_layer": {
               "title": "Emb Extraction Layer",
               "default": -1,
