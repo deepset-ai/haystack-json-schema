@@ -4700,6 +4700,7 @@
               "title": "Split By",
               "default": "word",
               "enum": [
+                "token",
                 "word",
                 "sentence",
                 "passage"
@@ -4737,6 +4738,21 @@
                 {
                   "type": "string",
                   "format": "path"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "tokenizer": {
+              "title": "Tokenizer",
+              "default": "tiktoken",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
                 },
                 {
                   "type": "null"
