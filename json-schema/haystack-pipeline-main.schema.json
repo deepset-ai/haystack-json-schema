@@ -869,6 +869,11 @@
               "title": "Validate Index Sync",
               "default": true,
               "type": "boolean"
+            },
+            "batch_size": {
+              "title": "Batch Size",
+              "default": 10000,
+              "type": "integer"
             }
           },
           "additionalProperties": false,
