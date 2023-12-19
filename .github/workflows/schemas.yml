@@ -1,5 +1,5 @@
 name: Schemas
-run-name: Update schema for ref ${{ github.event.client_payload.ref || inputs.ref || 'main' }}
+run-name: Update schema for ref ${{ github.event.client_payload.ref || inputs.ref || 'v1.x' }}
 
 on:
   workflow_dispatch: # Activate this workflow manually
@@ -8,7 +8,7 @@ on:
         description: Tag or branch name of Haystack version
         required: true
         type: string
-        default: main
+        default: v1.x
 
   # Activate this workflow with an API call
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#repository_dispatch
@@ -16,13 +16,13 @@ on:
     types: [generate-pipeline-schemas]
 
 env:
-  HAYSTACK_REF: ${{ github.event.client_payload.ref || inputs.ref || 'main' }}
+  HAYSTACK_REF: ${{ github.event.client_payload.ref || inputs.ref || 'v1.x' }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
 jobs:
 
   run:
-    name: Update schema for ref ${{ github.event.client_payload.ref || inputs.ref || 'main' }}
+    name: Update schema for ref ${{ github.event.client_payload.ref || inputs.ref || 'v1.x' }}
     runs-on: ubuntu-latest
     steps:
 
@@ -31,7 +31,7 @@ jobs:
         # Silently discard docker releases for test purposes to not publish schema files for them, while avoiding a red CI.
         continue-on-error: true
         run: |
-          echo "${HAYSTACK_REF}" | egrep '^main|v[0-9]+\.[0-9]+\.[0-9]+$'
+          echo "${HAYSTACK_REF}" | egrep '^v1.x|v[0-9]+\.[0-9]+\.[0-9]+$'
 
       - if: steps.validate.outcome == 'success'
         name: Checkout
@@ -49,7 +49,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add .
-          if [ "${HAYSTACK_REF}" != "main" ]; then
+          if [ "${HAYSTACK_REF}" != "v1.x" ]; then
             git restore --staged --worktree json-schema/haystack-pipeline-main.schema.json
           fi
           git commit -m "Update Schema for ${HAYSTACK_REF}" -a || echo "No changes to commit"
@@ -59,4 +59,4 @@ jobs:
         with:
          status: ${{ job.status }}
          channel: '#haystack'
-        if: steps.validate.outcome == 'success' && failure() && github.repository_owner == 'deepset-ai' && github.ref == 'refs/heads/main'
+        if: steps.validate.outcome == 'success' && failure() && github.repository_owner == 'deepset-ai' && github.ref == 'refs/heads/v1.x'
