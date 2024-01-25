@@ -38,6 +38,9 @@
             "$ref": "#/definitions/InMemoryDocumentStoreComponent"
           },
           {
+            "$ref": "#/definitions/MongoDBAtlasDocumentStoreComponent"
+          },
+          {
             "$ref": "#/definitions/OpenSearchDocumentStoreComponent"
           },
           {
@@ -129,9 +132,6 @@
           },
           {
             "$ref": "#/definitions/MultihopEmbeddingRetrieverComponent"
-          },
-          {
-            "$ref": "#/definitions/OpenAIAnswerGeneratorComponent"
           },
           {
             "$ref": "#/definitions/PDFToTextConverterComponent"
@@ -1022,6 +1022,114 @@
       ],
       "additionalProperties": false
     },
+    "MongoDBAtlasDocumentStoreComponent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "description": "Custom name for the component. Helpful for visualization and debugging.",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "description": "Haystack Class name for the component.",
+          "type": "string",
+          "const": "MongoDBAtlasDocumentStore"
+        },
+        "params": {
+          "title": "Parameters",
+          "type": "object",
+          "properties": {
+            "mongo_connection_string": {
+              "title": "Mongo Connection String",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "database_name": {
+              "title": "Database Name",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "collection_name": {
+              "title": "Collection Name",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "vector_search_index": {
+              "title": "Vector Search Index",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "embedding_dim": {
+              "title": "Embedding Dim",
+              "default": 768,
+              "type": "integer"
+            },
+            "return_embedding": {
+              "title": "Return Embedding",
+              "default": false,
+              "type": "boolean"
+            },
+            "similarity": {
+              "title": "Similarity",
+              "default": "cosine",
+              "type": "string"
+            },
+            "embedding_field": {
+              "title": "Embedding Field",
+              "default": "embedding",
+              "type": "string"
+            },
+            "progress_bar": {
+              "title": "Progress Bar",
+              "default": true,
+              "type": "boolean"
+            },
+            "duplicate_documents": {
+              "title": "Duplicate Documents",
+              "default": "overwrite",
+              "type": "string"
+            },
+            "recreate_index": {
+              "title": "Recreate Index",
+              "default": false,
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false,
+          "description": "Each parameter can reference other components defined in the same YAML file."
+        }
+      },
+      "required": [
+        "type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
     "OpenSearchDocumentStoreComponent": {
       "type": "object",
       "properties": {
@@ -1347,6 +1455,16 @@
               "default": 768,
               "type": "integer"
             },
+            "pods": {
+              "title": "Pods",
+              "default": 1,
+              "type": "integer"
+            },
+            "pod_type": {
+              "title": "Pod Type",
+              "default": "p1.x1",
+              "type": "string"
+            },
             "return_embedding": {
               "title": "Return Embedding",
               "default": false,
@@ -1418,6 +1536,11 @@
               "title": "Validate Index Sync",
               "default": true,
               "type": "boolean"
+            },
+            "pool_threads": {
+              "title": "Pool Threads",
+              "default": 1,
+              "type": "integer"
             }
           },
           "required": [
@@ -2229,6 +2352,9 @@
                   "type": "null"
                 }
               ]
+            },
+            "webdriver": {
+              "title": "Webdriver"
             }
           },
           "additionalProperties": false,
@@ -2920,6 +3046,17 @@
                   "type": "null"
                 }
               ]
+            },
+            "aws_config": {
+              "title": "Aws Config",
+              "anyOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           },
           "required": [
@@ -3275,6 +3412,17 @@
               "anyOf": [
                 {
                   "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "model_kwargs": {
+              "title": "Model Kwargs",
+              "anyOf": [
+                {
+                  "type": "object"
                 },
                 {
                   "type": "null"
@@ -4263,184 +4411,6 @@
       ],
       "additionalProperties": false
     },
-    "OpenAIAnswerGeneratorComponent": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "title": "Name",
-          "description": "Custom name for the component. Helpful for visualization and debugging.",
-          "type": "string"
-        },
-        "type": {
-          "title": "Type",
-          "description": "Haystack Class name for the component.",
-          "type": "string",
-          "const": "OpenAIAnswerGenerator"
-        },
-        "params": {
-          "title": "Parameters",
-          "type": "object",
-          "properties": {
-            "api_key": {
-              "title": "Api Key",
-              "type": "string"
-            },
-            "azure_base_url": {
-              "title": "Azure Base Url",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "azure_deployment_name": {
-              "title": "Azure Deployment Name",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "model": {
-              "title": "Model",
-              "default": "text-davinci-003",
-              "type": "string"
-            },
-            "max_tokens": {
-              "title": "Max Tokens",
-              "default": 50,
-              "type": "integer"
-            },
-            "api_version": {
-              "title": "Api Version",
-              "default": "2022-12-01",
-              "type": "string"
-            },
-            "top_k": {
-              "title": "Top K",
-              "default": 5,
-              "type": "integer"
-            },
-            "temperature": {
-              "title": "Temperature",
-              "default": 0.2,
-              "type": "number"
-            },
-            "presence_penalty": {
-              "title": "Presence Penalty",
-              "default": 0.1,
-              "type": "number"
-            },
-            "frequency_penalty": {
-              "title": "Frequency Penalty",
-              "default": 0.1,
-              "type": "number"
-            },
-            "examples_context": {
-              "title": "Examples Context",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "examples": {
-              "title": "Examples",
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  }
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "stop_words": {
-              "title": "Stop Words",
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "progress_bar": {
-              "title": "Progress Bar",
-              "default": true,
-              "type": "boolean"
-            },
-            "prompt_template": {
-              "title": "Prompt Template",
-              "default": null,
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "context_join_str": {
-              "title": "Context Join Str",
-              "default": " ",
-              "type": "string"
-            },
-            "moderate_content": {
-              "title": "Moderate Content",
-              "default": false,
-              "type": "boolean"
-            },
-            "api_base": {
-              "title": "Api Base",
-              "default": "https://api.openai.com/v1",
-              "type": "string"
-            },
-            "openai_organization": {
-              "title": "Openai Organization",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            }
-          },
-          "required": [
-            "api_key"
-          ],
-          "additionalProperties": false,
-          "description": "Each parameter can reference other components defined in the same YAML file."
-        }
-      },
-      "required": [
-        "type",
-        "name"
-      ],
-      "additionalProperties": false
-    },
     "PDFToTextConverterComponent": {
       "type": "object",
       "properties": {
@@ -4981,7 +4951,15 @@
               ]
             },
             "invocation_layer_class": {
-              "title": "Invocation Layer Class"
+              "title": "Invocation Layer Class",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "model_kwargs": {
               "title": "Model Kwargs",
@@ -5842,6 +5820,17 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "model_kwargs": {
+              "title": "Model Kwargs",
+              "anyOf": [
+                {
+                  "type": "object"
                 },
                 {
                   "type": "null"
@@ -7332,6 +7321,17 @@
                       {}
                     ]
                   }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "pipeline_kwargs": {
+              "title": "Pipeline Kwargs",
+              "anyOf": [
+                {
+                  "type": "object"
                 },
                 {
                   "type": "null"
