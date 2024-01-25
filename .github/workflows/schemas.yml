@@ -40,13 +40,7 @@ jobs:
       - if: steps.validate.outcome == 'success'
         name: Update schema
         run: |
-          if [ "${HAYSTACK_REF}" == "v1.x" ]; then
-            export HAYSTACK_REF="main"
-          fi
           docker run -t -v "${PWD}:/haystack-json-schema" "docker.io/deepset/haystack:base-cpu-${HAYSTACK_REF}" python /haystack-json-schema/.github/utils/generate_json_schema.py
-          if [ "${HAYSTACK_REF}" == "main" ]; then
-            export HAYSTACK_REF="v1.x"
-          fi
           
       - if: steps.validate.outcome == 'success'
         name: Commit files
