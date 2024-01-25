@@ -49,7 +49,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add .
-          if [ "${HAYSTACK_REF}" != "main" ]; then
+          if [ "${HAYSTACK_REF}" != "v1.x" ]; then
             git restore --staged --worktree json-schema/haystack-pipeline-main.schema.json
           fi
           git commit -m "Update Schema for ${HAYSTACK_REF}" -a || echo "No changes to commit"
