@@ -4895,6 +4895,17 @@
                 }
               ]
             },
+            "api_base": {
+              "title": "Api Base",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
             "timeout": {
               "title": "Timeout",
               "anyOf": [
@@ -5052,6 +5063,17 @@
             },
             "api_key": {
               "title": "Api Key",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "api_base": {
+              "title": "Api Base",
               "anyOf": [
                 {
                   "type": "string"
@@ -5680,7 +5702,17 @@
                 {
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "integer"
+                      }
+                    ]
                   }
                 },
                 {
@@ -5688,7 +5720,17 @@
                   "items": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "integer"
+                        }
+                      ]
                     }
                   }
                 },
